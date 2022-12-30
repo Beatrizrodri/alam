@@ -1,11 +1,13 @@
-#root {
-  --primary-color: #4b7173;
+:root {
+  --primary-color: #011724;
   --second-color: #dbb697;
-  --background-color: #335360;
+  --background-color: #002338;
   --success-color: #a1c5a3;
   --fault-color: #f1987a;
   --dark-color: #2b2d3c;
   --light-color: #f9f1f1;
+
+  font-size: 62.5%;
 }
 
 * {
@@ -14,8 +16,6 @@
   box-sizing: border-box;
 }
 
-html {
-  font-size: 62.5%;
-  font-weight: 400;
-  font-family: 'Roboto', sans-serif;
+html * {
+  font-family: 'Poppins', sans-serif;
 }
