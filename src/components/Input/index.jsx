@@ -1,4 +1,4 @@
-import './styles.scss';
+import styles from './styles.module.scss';
 import { FiMail, FiLock, FiEye, FiEyeOff } from 'react-icons/fi';
 import { useState } from 'react';
 
@@ -21,29 +21,36 @@ export default function Input({ label, type, placeholder }) {
   }
 
   return (
-    <div className="content">
+    <div className={styles.content}>
       <label htmlFor={label}>{label}</label>
-      <div className="input-wrapper">
-        <input type={inputType} placeholder={placeholder} name={label} />
+      <div className={styles.InputWrapper}>
+        <input
+          type={inputType}
+          placeholder={placeholder}
+          name={label}
+          onChange={event => {
+            console.log(event.target.value);
+          }}
+        />
         {type === 'password' ? (
           <>
-            <FiLock className="icon" />
+            <FiLock className={styles.icon} />
             <>
               {inputType === 'password' ? (
                 <FiEyeOff
-                  className="reveal-password-icon"
+                  className={styles.revelPasswordIcon}
                   onClick={handleRevealPassword}
                 />
               ) : (
                 <FiEye
-                  className="reveal-password-icon"
+                  className={styles.revelPasswordIcon}
                   onClick={handleRevealPassword}
                 />
               )}
             </>
           </>
         ) : (
-          <FiMail className="icon" />
+          <FiMail className={styles.icon} />
         )}
       </div>
     </div>

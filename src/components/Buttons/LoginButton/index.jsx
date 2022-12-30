@@ -1,8 +1,8 @@
-import './styles.scss';
+import styles from './styles.module.scss';
 
 export default function Button() {
   return (
-    <div id="button-content">
+    <div className={styles.buttonContent}>
       <button>Entrar</button>
       <span>
         Não tem uma conta? <a href="">Registre-se</a>
