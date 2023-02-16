@@ -9,7 +9,7 @@ export default function Title() {
         <h1>Faça seu login</h1>
       </div>
 
-      <div id={styles.caption}>
+      <div className={styles.caption}>
         <h2>Entre com suas informações de cadastro.</h2>
       </div>
     </div>

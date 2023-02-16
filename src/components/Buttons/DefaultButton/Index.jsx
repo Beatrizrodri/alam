@@ -1,6 +1,6 @@
 import styles from './styles.module.scss';
 
-function DefaultButton({ text, type }) {
+function DefaultButton({ text, type, textLight = false }) {
   const colors = {
     danger: '#FF8282',
     success: '#A1C5A3',
@@ -13,7 +13,7 @@ function DefaultButton({ text, type }) {
     <button
       style={{
         backgroundColor: colors[type],
-        color: type === 'info' ? 'white' : 'black',
+        color: type === 'info' || textLight ? 'white' : 'black',
       }}
     >
       {text}

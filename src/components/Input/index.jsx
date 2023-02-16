@@ -1,5 +1,5 @@
 import styles from './styles.module.scss';
-import { FiMail, FiLock, FiEye, FiEyeOff } from 'react-icons/fi';
+import { FiMail, FiLock, FiEye, FiEyeOff, FiHome } from 'react-icons/fi';
 import { useState } from 'react';
 
 export default function Input({ label, type, placeholder }) {
@@ -49,8 +49,10 @@ export default function Input({ label, type, placeholder }) {
               )}
             </>
           </>
-        ) : (
+        ) : type === 'email' ? (
           <FiMail className={styles.icon} />
+        ) : (
+          <FiHome className={styles.icon} />
         )}
       </div>
     </div>
