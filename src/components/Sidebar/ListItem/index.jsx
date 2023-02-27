@@ -1,7 +1,14 @@
-import { useState } from 'react';
-import { FiChevronDown, FiChevronUp, FiHome } from 'react-icons/fi';
+import { Fragment, useState } from 'react';
+import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
+import styles from './styles.module.scss';
 
-export function ListItem({ label, icon, isHeader = false, children }) {
+export function ListItem({
+  label,
+  icon,
+  isHeader = false,
+  isCaption = false,
+  children,
+}) {
   const [isOpen, setIsOpen] = useState(false);
 
   function handleToggleIsOpen() {
@@ -11,23 +18,25 @@ export function ListItem({ label, icon, isHeader = false, children }) {
   }
 
   return (
-    <>
+    <div className={styles.container}>
       <li
         onClick={handleToggleIsOpen}
         style={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          paddingLeft: !isHeader ? '1rem' : 0,
+          padding: isCaption ? '1.2rem 1.2rem 1.2rem 6rem' : '2rem',
         }}
+        className={styles.content}
       >
         <div>
-          <span>
+          <span className={styles.text}>
             {icon && icon}
             {label}
           </span>
         </div>
-        {isHeader && <div>{isOpen ? <FiChevronUp /> : <FiChevronDown />}</div>}
+        {isHeader && (
+          <div>
+            {isOpen ? <FiChevronUp size={24} /> : <FiChevronDown size={24} />}
+          </div>
+        )}
       </li>
       {children && (
         <div
@@ -38,6 +47,6 @@ export function ListItem({ label, icon, isHeader = false, children }) {
           {children}
         </div>
       )}
-    </>
+    </div>
   );
 }

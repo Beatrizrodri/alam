@@ -1,5 +1,6 @@
 import styles from './styles.module.scss';
 import logoImage from '../../assets/logo.svg';
+import DefaultButton from '../Buttons/DefaultButton/Index';
 
 function Content() {
   return (

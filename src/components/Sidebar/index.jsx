@@ -1,30 +1,47 @@
-import { FiHome } from 'react-icons/fi';
+import {
+  FiEdit2,
+  FiFileText,
+  FiFolderMinus,
+  FiLogIn,
+  FiPackage,
+  FiPieChart,
+  FiPlus,
+  FiRepeat,
+  FiSettings,
+  FiShoppingCart,
+  FiTrash,
+} from 'react-icons/fi';
 import { List } from './List';
 import { ListItem } from './ListItem';
 import styles from './styles.module.scss';
 
 function Sidebar() {
   return (
-    <div>
+    <div className={styles.container}>
       <header>Sistema de vendas</header>
       <nav>
-        <List>
-          <ListItem label="Vendas" isHeader icon={<FiHome />}>
-            <List>
-              <ListItem label="Produtos 1" />
-              <ListItem label="Produtos 2" />
-              <ListItem label="Produtos 3" />
-            </List>
-          </ListItem>
+        <ul className={styles.list}>
+          <ListItem
+            label="Vendas"
+            icon={<FiShoppingCart />}
+            className={styles.header}
+          />
 
-          <ListItem label="Vendas" isHeader icon={<FiHome />}>
+          <ListItem label="Produtos" icon={<FiPackage />} />
+
+          <ListItem label="Modificações" icon={<FiSettings />} isHeader>
             <List>
-              <ListItem label="Produtos 1" />
-              <ListItem label="Produtos 2" />
-              <ListItem label="Produtos 3" />
+              <ListItem label="Cadastrar" icon={<FiLogIn />} isCaption />
+              <ListItem label="Adicionar" icon={<FiPlus />} isCaption />
+              <ListItem label="Editar" icon={<FiEdit2 />} isCaption />
+              <ListItem label="Remover" icon={<FiTrash />} isCaption />
             </List>
           </ListItem>
-        </List>
+          <ListItem label="Troca e devolução" icon={<FiRepeat />} />
+          <ListItem label="Despesas" icon={<FiPieChart />} />
+          <ListItem label="Histórico" icon={<FiFolderMinus />} />
+          <ListItem label="Financeiro" icon={<FiFileText />} />
+        </ul>
       </nav>
     </div>
   );
